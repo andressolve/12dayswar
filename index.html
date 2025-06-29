@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Graphic Story Viewer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    #story-image {
+      max-width: 90%;
+      max-height: 80vh;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .nav-button {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Graphic Story Viewer</h1>
+  <img id="story-image" src="image1.png" alt="Story Page" />
+  <br />
+  <button class="nav-button" onclick="prevImage()">⟵ Prev</button>
+  <button class="nav-button" onclick="nextImage()">Next ⟶</button>
+
+  <script>
+    const totalImages = 10; // Update this to the number of images you have
+    let currentIndex = 1;
+
+    function updateImage() {
+      document.getElementById('story-image').src = `image${currentIndex}.png`;
+    }
+
+    function nextImage() {
+      if (currentIndex < totalImages) {
+        currentIndex++;
+        updateImage();
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex > 1) {
+        currentIndex--;
+        updateImage();
+      }
+    }
+  </script>
+</body>
+</html>
